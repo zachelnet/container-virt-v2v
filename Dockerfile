@@ -12,5 +12,8 @@ RUN mkdir /disks && \
     yum install -y https://www.rdoproject.org/repos/rdo-release.el8.rpm && \
     yum install -y python3-openstackclient python3-glanceclient && \
     yum clean all
+
+FROM scratch
+WORKDIR /mnt
     
 ENV LIBGUESTFS_BACKEND=direct
