@@ -38,6 +38,5 @@ export OS_IDENTITY_API_VERSION=3
 
 ```
 source Openrc.sh
-virt-v2v -of qcow2 -i disk <disk-path> -o glance
+virt-v2v -of [qcow2|raw] -i disk <disk-path> -o glance
 ```
-
