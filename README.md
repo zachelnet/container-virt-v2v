@@ -3,7 +3,14 @@
 ## To run virt-v2v migration
 
 ```
-docker run -ti -v /var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock -v <disk-path>:/mnt quay.io/zachelnet/virt-v2v:latest
+docker run -ti -v /var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock -v <disk-path>:/mnt:rw -v <filesystem-path>:/var/tmp:rw  quay.io/zachelnet/virt-v2v:latest
+```
+
+## MountPoint:
+```
+/var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock # Need for KVM
+:/mnt           # Disk Files
+:/var/tmp:rw    # Need for image build
 ```
 
 ## create Openrc.sh
