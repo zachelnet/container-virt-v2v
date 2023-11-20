@@ -1,4 +1,4 @@
-FROM quay.io/centos/centos:stream9
+FROM quay.io/centos/centos:stream8
 
 RUN mkdir /disks && \
     yum -y update && \
@@ -9,8 +9,8 @@ RUN mkdir /disks && \
         qemu-kvm \
         virt-v2v \
         virtio-win && \
-    yum install -y https://www.rdoproject.org/repos/rdo-release.el9.rpm && \
-    yum install -y python3-openstackclient python3-glanceclient && \
+    yum install -y https://www.rdoproject.org/repos/rdo-release.el8.rpm && \
+    yum install -y python3-openstackclient python3-glanceclient python3-devel python3-pip && \
     yum clean all
 
 WORKDIR /mnt
