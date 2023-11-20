@@ -4,6 +4,9 @@ on:
     - cron: '37 12 * * *'
   push:
 
+env:
+  tag: ${{ github.ref_name == 'main' && 'latest main' || github.ref_name }}
+
 jobs:
   build:
     name: Build and push image
@@ -16,8 +19,8 @@ jobs:
       id: build-image
       uses: redhat-actions/buildah-build@v2
       with:
-        image: zachelnet/virt-v2v_new
-        tags: ${{ github.ref_name }}
+        image: zachelnet/virt-v2v
+        tags: ${{ env.tag }}
         containerfiles: |
           ./Dockerfile
 
@@ -35,3 +38,4 @@ jobs:
 
     - name: Print image url
       run: echo "Image pushed to ${{ steps.push-to-quay.outputs.registry-paths }}"
+
