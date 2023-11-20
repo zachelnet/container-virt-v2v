@@ -61,5 +61,5 @@ virt-v2v -of raw -i disk <disk-path> -o disk -os .
 openstack image create --min-ram 2048 --property architecture=x86_64 --property hypervisor_type=kvm --property vm_mode=hvm --property hw_disk_bus=virtio --property hw_vif_model=virtio --property hw_video_model=qxl --property hw_machine_type=pc --property os_type=windows --property os_distro=windows --property hw_cpu_sockets=1 --property hw_cpu_cores=1 --property os_version=10 --property hw_rng_model=virtio --property hw_firmware_type=uefi --disk-format=raw --container-format=bare --file <disk-file> <image-name>
 ```
 
-
+### News
 
