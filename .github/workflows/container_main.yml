@@ -1,4 +1,4 @@
-name: Build and Push Image
+name: Build and Push Image Main
 on:
   schedule:
     - cron: '37 12 * * *'
@@ -7,13 +7,13 @@ on:
     - main
 jobs:
   build:
-    name: Build and push image
+    name: Build and push image Main
     runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Build Image
+    - name: Build Image Main
       id: build-image
       uses: redhat-actions/buildah-build@v2
       with:
@@ -24,7 +24,7 @@ jobs:
 
     # Podman Login action (https://github.com/redhat-actions/podman-login) also be used to log in,
     # in which case 'username' and 'password' can be omitted.
-    - name: Push To quay.io
+    - name: Push To quay.io 
       id: push-to-quay
       uses: redhat-actions/push-to-registry@v2
       with:
