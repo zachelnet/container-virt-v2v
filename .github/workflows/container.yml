@@ -17,7 +17,7 @@ jobs:
       uses: redhat-actions/buildah-build@v2
       with:
         image: zachelnet/virt-v2v_new
-        tags: ${{ github.branch }}
+        tags: ${{ github.ref_name }}
         containerfiles: |
           ./Dockerfile
 
