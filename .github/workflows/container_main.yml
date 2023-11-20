@@ -3,7 +3,8 @@ on:
   schedule:
     - cron: '37 12 * * *'
   push:
-
+  branch:
+    - main
 jobs:
   build:
     name: Build and push image
@@ -17,7 +18,7 @@ jobs:
       uses: redhat-actions/buildah-build@v2
       with:
         image: zachelnet/virt-v2v_new
-        tags: latest ${{ github.sha }}
+        tags: latest
         containerfiles: |
           ./Dockerfile
 
